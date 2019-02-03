@@ -836,9 +836,14 @@ main .col:nth-of-type(2n-1) li {background: var(--color-background);}
           'margin-top' : headerHeight,
         })
         
-        $('.col img').css({
-          'height' : boxWidth * 0.8,      
-        })
+        $('.col').each(function() {
+          var jQthis = $(this);
+          var boxWidth = jQthis.outerWidth();
+          
+          jQthis.find('img').css({
+            'height' : boxWidth * 0.8,      
+          })
+        });
       }
 
       calcMainMargin();
